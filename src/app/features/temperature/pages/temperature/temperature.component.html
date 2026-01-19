@@ -1,0 +1,41 @@
+<div class="table-section">
+  <div class="page-header">
+    <button mat-icon-button color="primary" aria-label="Atrás" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <div class="title-container">
+      <span class="title">Inicio</span>
+      <span class="small-text">(ver en tiempo real)</span>
+    </div>
+  </div>
+
+  <div class="table-container" style="margin-top: 3rem;">
+    <div class="table-title">Historial de Temperatura</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">{{ col }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data()">
+          <td>{{ row.timestamp | date:'dd/MM/yyyy HH:mm:ss':'America/Mexico_City' }}</td>
+          <td>{{ row.value | number:'1.2-2' }}°</td>
+        </tr>
+
+        <tr *ngIf="data().length === 0" class="empty-row">
+          <td [colSpan]="columns.length" class="empty-message">Sin datos disponibles</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <app-paginator
+      [currentPage]="page()"
+      [totalPages]="totalPages()"
+      (pageChange)="goToPage($event)"
+    ></app-paginator>
+
+  </div>
+</div>

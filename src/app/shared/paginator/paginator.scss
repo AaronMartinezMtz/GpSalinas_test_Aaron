@@ -1,0 +1,19 @@
+.pagination-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    button.mat-button {
+      min-width: 40px;
+      height: 36px;
+      font-weight: 500;
+    }
+
+    button.mat-button[color="primary"] {
+      background-color: #3f51b5;
+      color: white;
+    }

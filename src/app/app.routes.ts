@@ -3,16 +3,16 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./features/home/home.routes').then(m => m.HOME_ROUTES)
+    loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent)
   },
-  // {
-  //   path: 'humidity',
-  //   loadChildren: () => import('./features/humidity/humidity-routing-module').then(m => m.HumidityRoutingModule)
-  // },
-  // {
-  //   path: 'temperature',
-  //   loadChildren: () => import('./features/temperature/temperature-routing-module').then(m => m.TemperatureRoutingModule)
-  // },
+  {
+    path: 'humidity',
+    loadComponent: () => import('./features/humidity/pages/humidity/humidity.component').then(m => m.HumidityComponent)
+  },
+  {
+    path: 'temperature',
+    loadComponent: () => import('./features/temperature/pages/temperature/temperature.component').then(m => m.TemperatureComponent)
+  },
   {
     path: '',
     redirectTo: '/home',

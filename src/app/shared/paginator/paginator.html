@@ -1,0 +1,17 @@
+<div class="pagination-container" *ngIf="totalPages() > 1">
+      <button mat-button (click)="goToPage(1)" [disabled]="currentPage() === 1">« Primera</button>
+      <button mat-button (click)="goToPage(currentPage() - 1)" [disabled]="currentPage() === 1">‹ Anterior</button>
+
+      
+        <button
+          *ngFor="let page of pages()"
+          mat-button
+          [color]="page === currentPage() ? 'primary' : undefined"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+
+      <button mat-button (click)="goToPage(currentPage() + 1)" [disabled]="currentPage() === totalPages()">Siguiente ›</button>
+      <button mat-button (click)="goToPage(totalPages())" [disabled]="currentPage() === totalPages()">Última »</button>
+    </div>

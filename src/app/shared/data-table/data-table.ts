@@ -4,6 +4,7 @@ import { SensorService } from '../../core/services/sensor/sensor.service';
 // Angular Material imports
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 export interface SensorData {
   value: number;
   unit: string;
@@ -26,7 +27,7 @@ export class DataTable {
   data = signal<SensorData[]>([]);
   loading = signal<boolean>(true);
 
-  constructor(private sensorService: SensorService) {
+  constructor(private sensorService: SensorService, private router: Router) {
 
     /**
      * 1. Cargar historial REST (15 minutos)
@@ -73,8 +74,8 @@ export class DataTable {
   }
 
   goToDetails() { 
-    console.log("HLAA");
-    
+    const type = this.endpoint();
+    this.router.navigate([`/${type}`]);  
   }
 
 }
