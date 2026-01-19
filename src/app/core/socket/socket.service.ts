@@ -26,7 +26,7 @@ export class SocketService {
     this.listenersSetup = true;
 
     this.on('temperature:update', (data: {value: number, unit: string, timestamp: string}) => {
-      this.sensorService.updateTemperature(data);      
+      this.sensorService.updateTemperature(data);            
     });
 
     this.on('humidity:update', (data: {value: number, unit: string, timestamp: string}) => {
@@ -52,9 +52,11 @@ export class SocketService {
 
   
 
-  off(event: string): void {
-    if (this.socket) {
-      this.socket.off(event);
+   off(event: string, callback?: (...args: any[]) => void) {
+    if (callback) {
+      this.socket!.off(event, callback);
+    } else {
+      this.socket!.off(event);
     }
   }
 

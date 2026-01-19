@@ -1,5 +1,14 @@
 <div class="table-container">
-  <h3>{{ title() }}</h3>
+  <h3 class="title-with-button">
+  <span>
+    {{ title() }} 
+    <span class="small-text">(ultimos 3 registros)</span>
+  </span>
+  <button mat-icon-button color="primary" aria-label="Ver detalles" (click)="goToDetails()">
+    <mat-icon>open_in_new</mat-icon>
+  </button>
+</h3>
+
   <table class="data-table">
     <thead>
       <tr>
@@ -8,15 +17,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of data()">
+        <td>{{ row.timestamp | date:'dd/MM/yyyy HH:mm:ss':'America/Mexico_City' }}</td>
         <td>
-          {{ row.timestamp | date:'dd/MM/yyyy HH:mm:ss':'America/Mexico_City' }}
+          {{ endpoint() === 'temperature' ? (row.value | number:'1.2-2') + ' °' : (row.value | number:'1.2-2') }}
         </td>
-        @if(endpoint() === 'temperature'){
-          <td>{{ row.value | number:'1.2-2' }} °</td>
-        }
-        @else{
-          <td>{{ row.value | number:'1.2-2' }}</td>
-        }
         <td>{{ row.unit }}</td>
       </tr>
       <tr *ngIf="data().length === 0" class="empty-row">

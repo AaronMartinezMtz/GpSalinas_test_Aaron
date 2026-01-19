@@ -1,0 +1,73 @@
+.widget {
+  max-width: 420px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow: visible !important;
+  z-index: 10;
+}
+
+.title {
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.value {
+  font-size: 48px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.date {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+canvas {
+  padding: 10px;
+  margin-top: 10px;
+  height: 200px !important;
+  max-width: 100%;
+  overflow: visible !important;
+  z-index: 20;
+  position: relative;
+  background: transparent;
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  gap: 12px;
+
+  p {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2c3e50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

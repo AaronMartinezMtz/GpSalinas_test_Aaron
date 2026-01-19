@@ -14,11 +14,16 @@
     </div>
 
     <div class="date">
-      {{ formatearHora(currentDate()) }}
-      {{ formatearFecha(currentDate()) }}
+      {{ formatTime( currentDate() ) }}
+      {{ formatDate( currentDate() ) }}
     </div>
   }
 
-  <canvas #chartCanvas></canvas>
-
+<app-sensor-chart
+  [sensor]="{
+    name: title(),
+    units: unit(),
+    type: endpoint()
+  }"
+/>
 </div>

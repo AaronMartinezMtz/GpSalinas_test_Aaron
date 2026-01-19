@@ -1,9 +1,23 @@
 .table-container {
-  h3 {
+  h3.title-with-button {
+    display: flex;
+    justify-content: space-between; // empuja el botón a la derecha
+    align-items: center; // centra verticalmente el texto y el botón
     margin: 0 0 12px 0;
     font-size: 14px;
     font-weight: 600;
     color: #333;
+
+    span {
+      display: flex;
+      flex-direction: column; // subtítulo debajo del título
+    }
+
+    .small-text {
+      font-size: 10px;
+      font-weight: 400;
+      color: #777;
+    }
   }
 }
 
