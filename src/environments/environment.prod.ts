@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:5300',
+  apiUrl: 'https://apigpsalinas.aaronmtz.pro',
 };
