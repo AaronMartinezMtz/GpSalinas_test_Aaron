@@ -7,11 +7,31 @@ export const routes: Routes = [
   },
   {
     path: 'humidity',
-    loadComponent: () => import('./features/humidity/pages/humidity/humidity.component').then(m => m.HumidityComponent)
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./features/humidity/pages/humidity/humidity.component').then(m => m.HumidityComponent)
+      },
+      {
+        path: '**',
+        redirectTo: '',  // redirige a la ruta base 'humidity'
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: 'temperature',
-    loadComponent: () => import('./features/temperature/pages/temperature/temperature.component').then(m => m.TemperatureComponent)
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./features/temperature/pages/temperature/temperature.component').then(m => m.TemperatureComponent)
+      },
+      {
+        path: '**',
+        redirectTo: '',   // redirige a la ruta base 'temperature'
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: '',
