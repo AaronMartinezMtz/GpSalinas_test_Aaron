@@ -1,0 +1,27 @@
+<div class="table-container">
+  <h3>{{ title() }}</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns()">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data()">
+        <td>
+          {{ row.timestamp | date:'dd/MM/yyyy HH:mm:ss':'America/Mexico_City' }}
+        </td>
+        @if(endpoint() === 'temperature'){
+          <td>{{ row.value | number:'1.2-2' }} °</td>
+        }
+        @else{
+          <td>{{ row.value | number:'1.2-2' }}</td>
+        }
+        <td>{{ row.unit }}</td>
+      </tr>
+      <tr *ngIf="data().length === 0" class="empty-row">
+        <td [colSpan]="columns().length" class="empty-message">Sin datos disponibles</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,24 @@
+<div class="widget">
+
+  <h2 class="title">{{title()}}</h2>
+  <p class="subtitle">ÚLTIMO VALOR</p>
+
+  @if (isLoading()) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Cargando datos...</p>
+    </div>
+  } @else {
+    <div class="value">
+      {{ value().toFixed(2).replace('.', ',') }} {{unit()}}
+    </div>
+
+    <div class="date">
+      {{ formatearHora(currentDate()) }}
+      {{ formatearFecha(currentDate()) }}
+    </div>
+  }
+
+  <canvas #chartCanvas></canvas>
+
+</div>

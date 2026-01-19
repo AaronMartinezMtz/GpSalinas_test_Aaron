@@ -1,0 +1,41 @@
+<div class="home-container">
+  <div class="layout-grid">
+    <!-- Fila 1: Gráficas -->
+    <div class="chart-section chart-temperatura">
+      <h2>Gráfica Temperatura</h2>
+      <app-data-widget 
+        [title]="'Temperatura'" 
+        [unit]="'°C'" 
+        [endpoint]="'temperature'">
+      </app-data-widget>
+    </div>
+
+    <div class="chart-section chart-humedad">
+      <h2>Gráfica Humedad</h2>
+      <app-data-widget 
+        [title]="'Humedad'" 
+        [unit]="'%'" 
+        [endpoint]="'humidity'">
+      </app-data-widget>
+    </div>
+
+    <!-- Fila 2: Tablas -->
+    <div class="table-section tabla-temperatura">
+      <app-data-table 
+        [title]="'Temperatura'"
+        [columns]="['Hora', 'Valor', 'Unidad']"
+        [endpoint]="'temperature'"
+        >
+      </app-data-table>
+    </div>
+
+    <div class="table-section tabla-humedad">
+      <app-data-table 
+        [title]="'Humedad'"
+        [columns]="['Hora', 'Valor', 'Unidad']"
+        [endpoint]="'humidity'"
+        >
+      </app-data-table>
+    </div>
+  </div>
+</div>

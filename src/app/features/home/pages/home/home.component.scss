@@ -1,0 +1,145 @@
+.home-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #666;
+  }
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+
+  // Gráficas en la primera fila (ocupan 2 columnas cada una)
+  .chart-section {
+    grid-column: span 2;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+
+  // Tablas en la segunda fila (ocupan 2 columnas cada una)
+  .table-section {
+    grid-column: span 2;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+// Responsive para Tablet (2 columnas)
+@media (max-width: 1024px) {
+  .layout-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    .chart-section,
+    .table-section {
+      grid-column: span 1;
+    }
+  }
+}
+
+// Responsive para Celular (1 columna)
+@media (max-width: 768px) {
+  .home-container {
+    padding: 12px;
+  }
+
+  .layout-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    .chart-section,
+    .table-section {
+      grid-column: span 1;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    // Reorganizar orden en celular: Temp, Temp Table, Humid, Humid Table
+    .chart-section:nth-child(1) {
+      order: 1; // Gráfica Temperatura
+    }
+
+    .table-section:nth-child(3) {
+      order: 2; // Tabla Temperatura
+    }
+
+    .chart-section:nth-child(2) {
+      order: 3; // Gráfica Humedad
+    }
+
+    .table-section:nth-child(4) {
+      order: 4; // Tabla Humedad
+    }
+
+    .chart-section {
+      h2 {
+        font-size: 16px;
+      }
+    }
+
+    .table-section {
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Responsive para móviles pequeños
+@media (max-width: 480px) {
+  .home-container {
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .layout-grid {
+    gap: 8px;
+
+    .chart-section,
+    .table-section {
+      padding: 10px;
+      border-radius: 6px;
+
+      h2 {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
